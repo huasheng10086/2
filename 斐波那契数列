@@ -1,0 +1,17 @@
+# fibonacci.py
+
+def fibonacci(n):
+    """返回斐波那契数列的前n项"""
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence
+
+def main():
+    n = int(input("请输入要生成的斐波那契数列的项数: "))
+    fib_sequence = fibonacci(n)
+    print(f"斐波那契数列的前 {n} 项是:")
+    print(fib_sequence)
+
+if __name__ == "__main__":
+    main()
