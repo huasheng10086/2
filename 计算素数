@@ -1,0 +1,40 @@
+// primeChecker.js
+
+// 检查一个数是否是素数
+function isPrime(num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// 生成小于n的所有素数
+function generatePrimes(limit) {
+    const primes = [];
+    for (let i = 2; i < limit; i++) {
+        if (isPrime(i)) {
+            primes.push(i);
+        }
+    }
+    return primes;
+}
+
+// 主函数
+function main() {
+    const limit = parseInt(prompt("请输入一个数字，生成小于此数字的所有素数: "), 10);
+    if (isNaN(limit) || limit <= 1) {
+        console.log("请输入一个大于1的有效数字");
+    } else {
+        const primes = generatePrimes(limit);
+        console.log(`小于 ${limit} 的所有素数是:`);
+        console.log(primes.join(", "));
+    }
+}
+
+// 调用主函数
+main();
